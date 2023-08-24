@@ -1,0 +1,77 @@
+@charset "UTF-8";
+	body{
+		margin: auto;
+		width: 1300px;
+		background-color: #eee;
+	}
+	a{
+		text-decoration: none;
+		color: inherit;
+	}
+	a:hover{
+		color : olive;
+		text-decoration: underline;
+	}
+	ul{
+		display: flex;
+		
+	}
+	li{
+		list-style: none;
+		padding: 10px;
+	}
+	button{
+		cursor:pointer;
+		all:unset;
+		padding : 5px;
+		margin: 10px;
+		border-radius: 5px;
+		background-color: #dadada;
+		color:black;
+	}
+	button:hover{
+		background-color: olive;
+		color:#eee;
+	}
+	
+	table{
+		border: 2px solid black;	
+		border-collapse: collapse;
+	}
+	
+	th{
+		border: 1px solid black;	
+		padding: 10px;
+	}
+	
+	td{
+		border: 1px solid black;	
+		padding: 10px;
+	}
+	td:first-child{
+		text-align: center;
+	}
+	#user{
+		text-align: right;
+	}
+	nav{
+		text-align: right;
+	}
+	header{
+		background-color: #dadada;
+		padding: 20px;
+	}
+	#boardlist{
+		padding: 20px;
+		border-radius :10px;
+		width: fit-content;
+		background-color: white;
+		margin: 20px auto;
+	}
+	#boardlist button{
+		text-align: right;
+	}
+	.boardtable > .boardtitle {
+		
+}
+	
