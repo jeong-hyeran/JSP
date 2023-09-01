@@ -1,0 +1,17 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ include file="../header.jsp" %>
+<c:set var="dto" value="${boardDAO.selectOne(param.idx) }"/>
+
+<c:set var="flag" value="${fileUtil.deleteFile(dto.uploadfile) }"/>
+<c:set var="row" value="${boardDAO.removeFile(param.idx) }" />
+
+<script>
+	const flag = '${flag}'
+	if(flag){
+	alert('파일이 삭제 되었습니다.')
+	}
+	history.go(-1)
+</script>
+</body>
+</html>

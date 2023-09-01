@@ -1,0 +1,23 @@
+package board;
+
+import java.util.ArrayList;
+
+import db.DAO;
+
+public class BoardDAO extends DAO{
+	
+	private static BoardDAO instance = new BoardDAO();
+
+	public static BoardDAO getInstance() {
+		return instance;
+	}
+	
+	private BoardDAO() {}
+	
+	public ArrayList<BoardDTO> selectAll(){
+		ArrayList<BoardDTO> list = new ArrayList<BoardDTO>();
+		String sql = "select * from board2";
+		return list;
+	}
+}
+

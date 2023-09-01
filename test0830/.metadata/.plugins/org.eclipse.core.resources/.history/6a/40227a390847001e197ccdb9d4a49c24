@@ -1,0 +1,8 @@
+package board;
+
+public class fileUtil {
+	
+	private String saveDirectory = "c:\\test";
+	private int maxPostSize = 10 * 1024 *1024;
+
+}

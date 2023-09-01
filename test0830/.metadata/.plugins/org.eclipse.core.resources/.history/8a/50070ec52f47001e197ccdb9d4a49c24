@@ -1,0 +1,53 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ include file="../header.jsp" %>
+<c:set var="dto" value="${boardDAO.selectOne(param.idx) }"/>
+<div id="modify">
+	<c:if test="${empty login }">
+		<c:redirect url="/"/>
+	</c:if>
+	<form action="modify-action.jsp" method="POST" enctype="multipart/form-data">
+		<input type="hidden" name="idx" value="${param.idx }">
+	<table class="viewTable">
+		<tr>
+			<td>제목</td>
+			<td colspan="3">
+				<input type="text" name="title" value="${dto.title }">
+			</td>
+		</tr>
+		<tr>
+			<td>작성자</td>
+			<td>
+				${dto.writer }
+				<input type="hidden" value="${dto.writer }">
+			</td>
+			<td>날짜</td>
+			<td>
+				<fmt:formatDate value="${dto.wdate }" pattern="yyyy-MM-dd a hh:mm"/> 
+			</td>
+		</tr>
+		<tr>
+			<td>첨부파일</td>
+			<td colspan="3">
+				<c:if test="${not empty dto.uploadfile}">
+					기존파일 : ${dto.uploadfile }	
+					<a href="${cpath }/board/deleteFile.jsp?idx=${dto.idx}">
+						<input type="button" value="첨부파일 삭제"></a>		
+				</c:if>
+					<br><br>
+					<input type="file" name="image" >
+					<br><br>
+			</td>
+		</tr>
+		<tr>
+			<td>내용</td>
+			<td colspan="3">
+				<textarea name="content">${dto.content }</textarea> 
+			</td>
+		</tr>
+	</table>
+			<p><input type="submit" value="수정완료"></p>	
+	</form>
+</div>
+</body>
+</html>

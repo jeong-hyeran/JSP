@@ -1,0 +1,27 @@
+package db;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+
+import com.sun.xml.internal.bind.CycleRecoverable.Context;
+
+
+public class DAO {
+	
+	protected Connection conn;
+	protected PreparedStatement pstmt;
+	protected ResultSet rs;
+	
+	protected Context init;
+	protected DataSource ds;
+	
+	protected DAO() {
+		init = new InitialContext();
+		ds = (dataSource)init.lookup("java:comp/env/jdbc/oracle");
+	}
+
+}

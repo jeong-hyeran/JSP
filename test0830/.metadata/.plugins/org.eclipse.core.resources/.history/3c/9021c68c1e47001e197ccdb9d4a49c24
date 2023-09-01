@@ -1,0 +1,130 @@
+package board;
+
+import java.io.File;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import db.DAO;
+
+public class BoardDAO extends DAO{
+	
+	private static BoardDAO instance = new BoardDAO();
+
+	public static BoardDAO getInstance() {
+		return instance;
+	}
+	
+	private BoardDAO() {}
+	
+	//게시물 전체 조회 리스트 
+	public ArrayList<BoardDTO> selectAll(){
+		ArrayList<BoardDTO> list = new ArrayList<BoardDTO>();
+		String sql = "select * from board2 order by idx desc";
+		
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				BoardDTO dto = new BoardDTO();
+				dto.setIdx(rs.getInt("idx"));
+				dto.setContent(rs.getString("content"));
+				dto.setTitle(rs.getString("title"));
+				dto.setUploadfile(rs.getString("uploadfile"));
+				dto.setWriter(rs.getString("writer"));
+				dto.setWdate(rs.getDate("wdate"));
+				
+				list.add(dto);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			close();
+		}
+				
+		return list;
+	}
+	
+	// 게시물상세 보기
+	public BoardDTO selectOne(int idx) {
+		BoardDTO dto = new BoardDTO();
+		String sql = "select * from board2 where idx=?";
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, idx);
+			rs = pstmt.executeQuery();
+			 while(rs.next()) {
+				 dto.setContent(rs.getString("content"));
+				 dto.setIdx(rs.getInt("idx"));
+				 dto.setTitle(rs.getString("title"));
+				 dto.setUploadfile(rs.getString("uploadfile"));
+				 dto.setWdate(rs.getDate("wdate"));
+				 dto.setWriter(rs.getString("writer"));
+			 }
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			close();
+		}
+	
+		return dto;
+	}
+	
+	// 게시물 수정
+	public int modify(BoardDTO dto) {
+		int row = 0;
+		String sql;
+		int index=0;
+		if(dto.getUploadfile() != null) {
+			sql = "update board2 set title=?, content=?, uploadfile=? where idx=?";
+		}else {
+			sql = "update board2 set title=?, content=? where idx=?";
+		}
+		
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(++index, dto.getTitle());
+			pstmt.setString(++index, dto.getContent());
+			if(dto.getUploadfile() != null) {
+				pstmt.setString(++index, dto.getUploadfile());
+			}
+			pstmt.setInt(++index, dto.getIdx());
+			
+			row = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		
+		return row;
+	}
+	
+
+	// 새글작성
+	public int insert(BoardDTO dto) {
+		int row = 0;
+		String sql = "insert into board2 (title, writer, content, uploadfile) "
+				+ "values (?,?,?,?)";
+		
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, dto.getTitle());
+			pstmt.setString(2, dto.getWriter());
+			pstmt.setString(3, dto.getContent());
+			pstmt.setString(4, dto.getUploadfile());
+			
+			row = pstmt.executeUpdate()
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return row;
+	}
+}
+

@@ -1,0 +1,22 @@
+package board;
+/*
+idx        not null number        
+title      not null varchar2(100) 
+writer     not null varchar2(100) 
+content    not null clob          
+uploadfile          varchar2(500) 
+wdate               date     
+ */
+
+import java.sql.Date;
+
+public class BoardDTO {
+	
+	private int idx;
+	private String title;
+	private String writer;
+	private String ontent;
+	private String uploadfile;
+	private Date wdate;
+
+}

@@ -1,0 +1,152 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" import="member.*, board.*"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="cpath" value="${pageContext.request.contextPath }" />
+<c:set var="memberDAO" value="${MemberDAO.getInstance() }"/>
+<c:set var="boardDAO" value="${BoardDAO.getInstance() }"/>
+<c:set var="fileUtil" value="${FileUtil.getInstance() }"/>
+<% request.setCharacterEncoding("UTF-8"); %>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test</title>
+<style>
+	body{
+		width: 1300px;
+		margin: auto;
+	}
+	h1{
+		text-align: center;
+	}
+	header{
+		border-bottom: 1px solid grey;
+		margin: 10px;
+	}
+	#login, #join{
+		margin: auto;
+	}
+
+	#list, #modify, #view, #write, #part{
+		margin: auto;
+		width: 1000px;
+	}
+	a{
+		all:unset;
+		cursor: pointer;
+	}
+	a:hover{
+		color:inherit;
+		text-decoration: underline;
+	}
+	h6{
+		text-align: center;
+	}
+	ul{
+		display: flex;
+		justify-content: space-around;
+	}
+	li {
+		list-style: none;
+	}
+	.listTable{
+		border-collapse: collapse;
+		margin: auto;
+		background-color: white;
+	}
+	.listTable th{
+		padding:10px;
+		border-bottom: 2px solid black; 
+	}
+	.listTable td{
+		padding:10px;
+		border-bottom: 1px solid black; 
+	}
+	.listTable td:nth-child(2){
+		width: 500px;
+	}
+	.viewTable{
+		border-collapse: collapse;
+		margin: 30px auto;
+		background-color: white;
+	}
+	.viewTable td{
+		padding: 10px;
+		border: 1px solid black; 
+	}
+	.viewTable td:first-child{
+		width: 70px;
+		text-align: center;
+		font-weight: bold;
+	}
+	.viewTable tr:last-child{
+		height: 300px;
+	}
+	.viewTable textarea{
+		height: 300px;
+		width: 250px;
+	}
+	.sb{
+		display: flex;
+		justify-content: space-between;
+		padding: 0 120px;
+	}
+	#join, #login{
+		box-sizing:border-box;
+		width: 300px;
+		padding:30px;
+		background-color: #eee;
+		border-radius: 15px;
+		text-align: center;
+	}
+	#view, #modify{
+		border-radius: 15px;
+		padding:30px;
+		background-color: #eee;
+		width: 800px;
+	}
+	#write{
+		margin:50px auto;
+		width: fit-content;
+	}
+
+	#write textarea{
+		width: 300px;
+	}
+	.writer{
+		width: 100px;
+	}
+	button, input[type="submit"]{
+		background-color: #d3d3d3;
+		border: #d3d3d3;
+		border-radius: 5px;
+		padding: 5px;
+		cursor: pointer;
+	}
+	button:hover, input[type="submit"]:hover{
+		background-color: #grey;
+		border: #d3d3d3;
+		
+	}
+</style>
+</head>
+<body>
+<div>
+<header>
+	<h1><a href="${cpath }">test</a></h1>
+	<ul>
+		<c:if test="${not empty login }">
+			<li><a href="${cpath }/board/list.jsp">게시물</a></li>
+			<li>${login.userid }[${login.username }님]</li>
+			<li><a href="${cpath }/member/logout.jsp">로그아웃</a></li>
+		</c:if>
+		<c:if test="${empty login }">
+			<li><a href="${cpath }/board/list.jsp">게시물</a></li>
+			<li><a href="${cpath }/member/login.jsp">로그인</a></li>
+			<li><a href="${cpath }/member/join.jsp">회원가입</a></li>
+		</c:if>
+	</ul>
+</header>
+</div>

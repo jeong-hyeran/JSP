@@ -1,0 +1,30 @@
+
+8월 30, 2023 19:58:18.54 NEW SESSION
+8월 30, 2023 19:58:18.54 [5332:15624:0830/195818.536:ERROR:device_event_log_impl.cc(222)] [19:58:18.534] USB: usb_service_win.cc:415 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+8월 30, 2023 19:58:19.47 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+8월 30, 2023 20:42:25.74 [272:14196:0830/204225.748:ERROR:device_event_log_impl.cc(222)] [20:42:25.756] USB: usb_service_win.cc:415 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+8월 30, 2023 20:42:26.12 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+8월 30, 2023 20:59:42.76 [14356:16112:0830/205942.766:ERROR:device_event_log_impl.cc(222)] [20:59:42.770] USB: usb_service_win.cc:415 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+8월 30, 2023 20:59:42.92 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+
+8월 30, 2023 22:25:54.44 NEW SESSION
+8월 30, 2023 22:25:54.44 [14140:10820:0830/222554.427:ERROR:device_event_log_impl.cc(222)] [22:25:54.438] USB: usb_service_win.cc:415 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+8월 30, 2023 22:25:54.65 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+8월 30, 2023 22:27:00.62 [13744:13752:0830/222700.620:ERROR:device_event_log_impl.cc(222)] [22:27:00.622] USB: usb_service_win.cc:415 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+8월 30, 2023 22:27:00.83 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+8월 30, 2023 22:30:09.14 [8860:15380:0830/223009.143:ERROR:device_event_log_impl.cc(222)] [22:30:09.140] USB: usb_service_win.cc:415 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+8월 30, 2023 22:30:09.88 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+8월 30, 2023 22:32:02.03 [15428:6272:0830/223202.034:ERROR:device_event_log_impl.cc(222)] [22:32:02.029] USB: usb_service_win.cc:415 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+8월 30, 2023 22:32:02.74 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+8월 30, 2023 22:32:47.72 [1016:14412:0830/223247.728:ERROR:device_event_log_impl.cc(222)] [22:32:47.728] USB: usb_service_win.cc:415 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+8월 30, 2023 22:32:47.91 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+
+8월 30, 2023 22:35:02.16 NEW SESSION
+8월 30, 2023 22:35:02.16 [10268:15592:0830/223502.163:ERROR:device_event_log_impl.cc(222)] [22:35:02.162] USB: usb_service_win.cc:415 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+8월 30, 2023 22:35:02.86 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+8월 30, 2023 22:36:37.36 [10604:15484:0830/223637.367:ERROR:device_event_log_impl.cc(222)] [22:36:37.367] USB: usb_service_win.cc:415 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+8월 30, 2023 22:36:37.57 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+
+8월 31, 2023 15:39:15.89 NEW SESSION
+8월 31, 2023 15:39:15.89 [10320:11944:0831/153915.894:ERROR:device_event_log_impl.cc(222)] [15:39:15.901] USB: usb_service_win.cc:415 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+8월 31, 2023 15:39:16.39 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.

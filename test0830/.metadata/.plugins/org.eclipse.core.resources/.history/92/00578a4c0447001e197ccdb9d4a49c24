@@ -1,0 +1,33 @@
+package member;
+
+import java.sql.SQLException;
+
+import db.DAO;
+
+public class MemberDAO extends DAO{
+	
+	private static MemberDAO instance = new MemberDAO();
+
+	public static MemberDAO getInstance() {
+		return instance;
+	}
+	
+	private MemberDAO() {}
+	
+	public MemberDTO login(MemberDTO dto) {
+		MemberDTO login = null;
+		String sql = "select * from member where userid=? and userpw=?";
+		
+		conn = ds.getConnection();
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return login;
+	}
+
+}

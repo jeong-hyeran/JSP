@@ -1,0 +1,36 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ include file="../header.jsp" %>
+<c:set var="list" value="${boardDAO.selectAll() }" />
+<div id="list">
+
+	<div class="sb">
+		<a href="${cpath }/board/write.jsp"><button>새글작성</button></a>
+		<a href="${cpath }/board/part.jsp?writer=${login.userid}"><button>내글보기</button></a>
+	</div>
+	<table>
+		<thead>
+			<tr>
+				<th>번호</th>
+				<th>제목</th>
+				<th>작성자</th>
+				<th>날짜</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach var="item" items="${list }">
+				<tr>
+					<th>${item.idx }</th>
+					<th>
+						<a href="${cpath }/board/view.jsp?idx=${item.idx}">${item.title }</a>
+						${not empty  item.uploadfile ? '💾' :''}
+					</th>
+					<th>${item.writer }</th>
+					<th>${item.wdate }</th>
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table>
+</div>
+</body>
+</html>

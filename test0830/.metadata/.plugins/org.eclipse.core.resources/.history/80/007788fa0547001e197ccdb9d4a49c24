@@ -1,0 +1,61 @@
+package board;
+/*
+idx        not null number        
+title      not null varchar2(100) 
+writer     not null varchar2(100) 
+content    not null clob          
+uploadfile          varchar2(500) 
+wdate               date     
+ */
+
+import java.sql.Date;
+
+public class BoardDTO {
+	
+	private int idx;
+	private String title;
+	private String writer;
+	private String content;
+	private String uploadfile;
+	private Date wdate;
+	
+	public int getIdx() {
+		return idx;
+	}
+	public void setIdx(int idx) {
+		this.idx = idx;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public String getWriter() {
+		return writer;
+	}
+	public void setWriter(String writer) {
+		this.writer = writer;
+	}
+	public String getOntent() {
+		return ontent;
+	}
+	public void setOntent(String ontent) {
+		this.ontent = ontent;
+	}
+	public String getUploadfile() {
+		return uploadfile;
+	}
+	public void setUploadfile(String uploadfile) {
+		this.uploadfile = uploadfile;
+	}
+	public Date getWdate() {
+		return wdate;
+	}
+	public void setWdate(Date wdate) {
+		this.wdate = wdate;
+	}
+	
+	
+
+}

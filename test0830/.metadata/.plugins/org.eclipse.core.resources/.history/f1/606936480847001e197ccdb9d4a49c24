@@ -1,0 +1,13 @@
+package board;
+
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
+public class fileUtil {
+	
+	private String saveDirectory = "C:\\test";
+	private int maxPostSize = 10 * 1024 *1024;
+	private String encoding = "UTF-8";
+	private DefaultFileRenamePolicy policy = new DefaultFileRenamePolicy();
+	
+	private static 
+}

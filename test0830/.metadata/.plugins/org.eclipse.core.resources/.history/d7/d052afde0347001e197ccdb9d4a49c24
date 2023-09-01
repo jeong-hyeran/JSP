@@ -1,0 +1,15 @@
+package board;
+
+import db.DAO;
+
+public class BoardDAO extends DAO{
+	
+	private static BoardDAO instance = new BoardDAO();
+
+	public static BoardDAO getInstance() {
+		return instance;
+	}
+	
+	private BoardDAO() {}
+
+}
