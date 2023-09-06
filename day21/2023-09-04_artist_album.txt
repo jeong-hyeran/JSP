@@ -1,0 +1,303 @@
+drop sequence artist_seq;
+drop sequence album_seq;
+
+drop table artist cascade constraints purge;
+drop table album cascade constraints purge;
+
+create sequence artist_seq
+    start with 1
+    maxvalue 99999
+    increment by 1
+    nocycle
+    nocache;
+    
+create sequence album_seq
+    start with 1
+    maxvalue 99999
+    increment by 1
+    nocycle
+    nocache;
+
+create table artist (
+    id          number          default artist_seq.nextval primary key,
+    name        varchar2(200)   not null,
+    company     varchar2(200)   ,
+    country     varchar2(100)   ,
+    member      varchar2(200)   not null,
+    debut       date            ,
+    type        varchar2(100)   not null,
+    profileImg  varchar2(500)   
+);
+
+create table album (
+    id          number          default album_seq.nextval primary key,
+    artist_id   number          not null,
+    name        varchar2(200)   not null,
+    type        varchar2(100)   not null,
+    rDate       date            not null,
+    playTime    number          not null,
+    coverImg    varchar2(500),
+    
+    constraint album_artist_fk
+    foreign key (artist_id)
+    references artist(id)
+);
+
+
+======================================================================================
+목록 
+단일 조회
+추가
+
+insert into artist (name, company, country, member, debut, type, profileimg) 
+    values ('newjeans','ador','korea','하니.민지.혜인.다니엘.해린','2022/07/22','걸그룹','뉴진스png');
+
+
+drop sequence artist_seq;
+drop sequence album_seq;
+
+drop table artist cascade constraints purge;
+drop table album cascade constraints purge;
+
+create sequence artist_seq
+    start with 1
+    maxvalue 99999
+    increment by 1
+    nocycle
+    nocache;
+    
+create sequence album_seq
+    start with 1
+    maxvalue 99999
+    increment by 1
+    nocycle
+    nocache;
+
+create table artist (
+    id          number          default artist_seq.nextval primary key,
+    name        varchar2(200)   not null,
+    company     varchar2(200)   ,
+    country     varchar2(100)   ,
+    member      varchar2(200)   not null,
+    debut       date            ,
+    type        varchar2(100)   not null,
+    profileImg  varchar2(500)   
+);
+
+insert into artist (name, company, country, member, debut, type, profileimg) 
+    values ('newjeans','ador','korea','하니.민지.혜인.다니엘.해린','2022/07/22','걸그룹','뉴진스png');
+
+commit;
+select * from album;
+select * from artist  where id = 1;
+DELETE FROM artist WHERE id= 1;
+
+insert into album (name, type, rDate, playTime, coverImg) 
+    values ('love lee','R&B/soul','korea','2023/08/21',385,'악뮤앨범.png');
+
+create table album (
+    id          number          default album_seq.nextval primary key,
+    artist_id   number          not null,
+    name        varchar2(200)   not null,
+    type        varchar2(100)   not null,
+    rDate       date            not null,
+    playTime    number          not null,
+    coverImg    varchar2(500),
+    
+    constraint album_artist_fk
+    foreign key (artist_id)
+    references artist(id)
+);
+
+select artist.name, album.name, album.rdate,album.coverimg
+from artist join album
+on artist.id=album.artist_id
+where artist.name='악동뮤지션';
+
+======================================================================================
+set define off;
+
+drop sequence artist_seq;
+drop sequence album_seq;
+drop sequence music_seq;
+
+drop table artist cascade constraints purge;
+drop table album cascade constraints purge;
+drop table music cascade constraints purge;
+
+create sequence artist_seq
+    start with 1
+    maxvalue 99999
+    increment by 1
+    nocycle
+    nocache;
+    
+create sequence album_seq
+    start with 1
+    maxvalue 99999
+    increment by 1
+    nocycle
+    nocache;
+
+create sequence music_seq
+    start with 1
+    maxvalue 99999
+    increment by 1
+    nocycle
+    nocache;
+
+create table artist (
+    id          number          default artist_seq.nextval primary key,
+    name        varchar2(200)   not null,
+    company     varchar2(200)   ,
+    country     varchar2(100)   ,
+    member      varchar2(200)   not null,
+    debut       date            ,
+    type        varchar2(100)   not null,
+    profileImg  varchar2(500)   
+);
+
+create table album (
+    id          number          default album_seq.nextval primary key,
+    artist_id   number          not null,
+    name        varchar2(200)   not null,
+    type        varchar2(100)   not null,
+    rDate       date            not null,
+    playTime    number          not null,
+    coverImg    varchar2(500),
+    
+    constraint album_artist_fk
+    foreign key (artist_id)
+    references artist(id)
+);
+
+create table music (
+    id          number          default music_seq.nextval primary key,
+    artist_id   number          not null,
+    album_id    number          not null,
+    name        varchar2(200)   not null,
+    genre       varchar2(100)   not null,
+    playtime    number          not null,
+    lyrics      clob            ,
+    playCount   number          default 0,
+    
+    constraint music_artist_fk
+    foreign key (artist_id)
+    references artist(id),
+    
+    constraint music_album_fk
+    foreign key (album_id)
+    references album(id)
+);
+
+select * from artist;
+select * from album;
+select * from music;
+
+select 
+    a.id, 
+    a.name as 앨범, 
+    b.name as 아티스트,
+    c.name as 곡명
+        from album A
+        join artist B
+            on a.artist_id = b.id
+        join music C
+            on C.album_id = a.id;
+=====================================================================
+drop sequence artist_seq;
+drop sequence album_seq;
+
+drop table artist cascade constraints purge;
+drop table album cascade constraints purge;
+
+create sequence artist_seq
+    start with 1
+    maxvalue 99999
+    increment by 1
+    nocycle
+    nocache;
+    
+create sequence album_seq
+    start with 1
+    maxvalue 99999
+    increment by 1
+    nocycle
+    nocache;
+
+create table artist (
+    id          number          default artist_seq.nextval primary key,
+    name        varchar2(200)   not null,
+    company     varchar2(200)   ,
+    country     varchar2(100)   ,
+    member      varchar2(200)   not null,
+    debut       date            ,
+    type        varchar2(100)   not null,
+    profileImg  varchar2(500)   
+);
+
+insert into artist (name, company, country, member, debut, type, profileimg) 
+    values ('newjeans','ador','korea','하니.민지.혜인.다니엘.해린','2022/07/22','걸그룹','뉴진스png');
+
+commit;
+select * from artist ORDER BY id, name;
+DELETE FROM artist WHERE id = 10;
+commit;
+select * from album;
+select * from artist  where id = 2;
+select * from album  where artist_id = 2 and id=6;
+DELETE FROM artist WHERE id= 1;
+
+insert into album (name, type, rDate, playTime, coverImg) 
+    values ('love lee','R&B/soul','korea','2023/08/21',385,'악뮤앨범.png');
+
+create table album (
+    id          number          default album_seq.nextval primary key,
+    artist_id   number          not null,
+    name        varchar2(200)   not null,
+    type        varchar2(100)   not null,
+    rDate       date            not null,
+    playTime    number          not null,
+    coverImg    varchar2(500),
+    
+    constraint album_artist_fk
+    foreign key (artist_id)
+    references artist(id)
+);
+
+UPDATE artist SET memder = '',company='',profileimg='';
+select artist.name, album.name, album.rdate,album.coverimg
+from artist join album
+on artist.id=album.artist_id
+where artist.name='악동뮤지션';
+
+
+
+create sequence music_seq
+    start with 1
+    maxvalue 99999
+    increment by 1
+    nocycle
+    nocache;
+
+create table music (
+    id          number          default music_seq.nextval primary key,
+    artist_id   number          not null,
+    album_id    number          not null,
+    name        varchar2(200)   not null,
+    genre       varchar2(100)   not null,
+    playtime    number          not null,
+    lyrics      clob            ,
+    playCount   number          default 0,
+    
+    constraint music_artist_fk
+    foreign key (artist_id)
+    references artist(id),
+    
+    constraint music_album_fk
+    foreign key (album_id)
+    references album(id)
+);
+
+select * from music;
+select * from music order by id desc;
